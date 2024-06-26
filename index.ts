@@ -12,7 +12,7 @@ export function sql(strings: TemplateStringsArray) {
       query: strings[0]
     }
     Object.entries(queryParams).map(([key, value]) => { 
-      if (typeof(value) === 'string') params['param_' + key] = value.replaceAll('_', ' ')
+      // if (typeof(value) === 'string') params['param_' + key] = value.replaceAll('_', ' ')
     })
     return fetch(process.env.endpoint + stringify(params)).then((res) => res.json()) as Promise<ResponseJSON<any>>
     // return clickhouse.query({
